@@ -1,0 +1,22 @@
+# Ignore exported data / secrets
+cookies.json
+*.csv
+
+# Python cache / environment
+__pycache__/
+*.py[cod]
+*.pyo
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini

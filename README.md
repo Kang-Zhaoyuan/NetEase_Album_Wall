@@ -19,13 +19,25 @@
 1) 安装依赖
 
 ```bash
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
+```
+
+如果你在 Windows 上使用了仓库里的 `.venv`，更稳妥的方式是明确指定它：
+
+```bash
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
 2) 运行脚本
 
 ```bash
 python netease_album_exporter.py
+```
+
+如果当前终端里的 `python` 不是仓库的虚拟环境，请改用：（好吧，我就是虚拟环境太多把自己搞乱了……）
+
+```bash
+.\.venv\Scripts\python.exe netease_album_exporter.py
 ```
 
 3) 在弹出的 Chrome 页面扫码登录

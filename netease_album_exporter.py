@@ -149,11 +149,18 @@ class LoginManager:
 
     def _selenium_login_and_get_music_u(self, *, timeout_s: int) -> Tuple[str, Optional[List[Dict[str, Any]]]]:
         # Lazy imports so pure-requests usage still starts quickly.
-        from selenium import webdriver
-        from selenium.common.exceptions import WebDriverException
-        from selenium.webdriver.chrome.options import Options
-        from selenium.webdriver.chrome.service import Service
-        from webdriver_manager.chrome import ChromeDriverManager
+        try:
+            from selenium import webdriver
+            from selenium.common.exceptions import WebDriverException
+            from selenium.webdriver.chrome.options import Options
+            from selenium.webdriver.chrome.service import Service
+            from webdriver_manager.chrome import ChromeDriverManager
+        except ModuleNotFoundError as e:
+            raise RuntimeError(
+                "Missing login dependencies in the current Python environment. "
+                "Install them with the same interpreter that runs this script, for example: "
+                ".\\.venv\\Scripts\\python.exe -m pip install -r requirements.txt"
+            ) from e
 
         options = Options()
         if self.headless_login:
